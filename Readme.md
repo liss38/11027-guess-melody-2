@@ -1,7 +1,7 @@
 # Учебный проект «Угадай мелодию» [![Build status][travis-image]][travis-url]
 
 * Студент: [Максим Сальников](https://up.htmlacademy.ru/react/2/user/11027).
-* Наставник: `Неизвестно`.
+* Наставник: [Юрий Шибанов](https://htmlacademy.ru/profile/id1143423).
 
 ---
 
