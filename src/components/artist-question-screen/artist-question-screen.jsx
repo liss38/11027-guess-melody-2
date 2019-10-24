@@ -5,7 +5,6 @@ import Header from '../header/header.jsx';
 const ArtistQuestionScreen = ({question, screenIndex, onAnswer}) => {
   const {
     answers,
-    // song,
   } = question;
 
   const handleFormChange = (evt) => {
