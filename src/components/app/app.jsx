@@ -5,37 +5,6 @@ import ArtistQuestionScreen from '../artist-question-screen/artist-question-scre
 import GenreQuestionScreen from '../genre-question-screen/genre-question-screen.jsx';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      question: -1,
-      errorCount: 0,
-    };
-  }
-
-  render() {
-    const {
-      // gameTime,
-      // errorCount,
-      questions,
-    } = this.props;
-    const {question} = this.state;
-
-    return App.getScreen(question, this.props, (answerCheck) => {
-      this.setState((prevState) => {
-        const nextIndex = prevState.question + 1;
-        const isEnd = nextIndex >= questions.length;
-
-        return {
-          ...prevState,
-          question: !isEnd ? nextIndex : -1,
-          errorCount: answerCheck ? prevState.errorCount : prevState.errorCount + 1,
-        };
-      });
-    });
-  }
-
   static getScreen(question, props, onUserAnswer) {
     if (question === -1) {
       const {
@@ -68,6 +37,34 @@ class App extends Component {
     }
   }
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      question: -1,
+      errorCount: 0,
+    };
+  }
+
+  render() {
+    const {
+      questions,
+    } = this.props;
+    const {question} = this.state;
+
+    return App.getScreen(question, this.props, (answerCheck) => {
+      this.setState((prevState) => {
+        const nextIndex = prevState.question + 1;
+        const isEnd = nextIndex >= questions.length;
+
+        return {
+          ...prevState,
+          question: !isEnd ? nextIndex : -1,
+          errorCount: answerCheck ? prevState.errorCount : prevState.errorCount + 1,
+        };
+      });
+    });
+  }
 }
 
 App.propTypes = {
@@ -80,7 +77,7 @@ App.propTypes = {
       artist: PropTypes.string,
       src: PropTypes.string,
     }),
-    answers: PropTypes.arrayOf(PropTypes.oneOf([
+    answers: PropTypes.arrayOf(PropTypes.oneOfType([
       PropTypes.shape({
         src: PropTypes.string,
         genre: PropTypes.string,

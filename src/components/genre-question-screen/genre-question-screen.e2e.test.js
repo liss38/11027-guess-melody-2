@@ -5,7 +5,7 @@ import GenreQuestionScreen from './genre-question-screen';
 
 configure({adapter: new Adapter()});
 it(`GenreQuestionScreen: check on submit form callback`, () => {
-  const submitFormHandler = jest.fn();
+  const onAnswer = jest.fn();
   const genreQuestionScreen = shallow(<GenreQuestionScreen
     screenIndex={0}
     question={{
@@ -30,11 +30,13 @@ it(`GenreQuestionScreen: check on submit form callback`, () => {
         },
       ],
     }}
-    onAnswer={submitFormHandler}
+    onAnswer={onAnswer}
   />);
 
   const genreForm = genreQuestionScreen.find(`.game__tracks`);
-  genreForm.simulate(`submit`);
+  genreForm.simulate(`submit`, {
+    preventDefault: () => {},
+  });
 
-  expect(submitFormHandler).toHaveBeenCalledTimes(1);
+  expect(onAnswer).toHaveBeenCalledTimes(1);
 });

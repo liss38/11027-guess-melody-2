@@ -4,8 +4,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import ArtistQuestionScreen from './artist-question-screen';
 
 configure({adapter: new Adapter()});
-it(`ArtistQuestionScreen: check on change form collback`, () => {
-  const changeFormHandler = jest.fn();
+it(`ArtistQuestionScreen: check on change form callback`, () => {
+  const onAnswer = jest.fn();
   const artistQuestionScreen = shallow(<ArtistQuestionScreen
     screenIndex={0}
     question={{
@@ -29,11 +29,15 @@ it(`ArtistQuestionScreen: check on change form collback`, () => {
         },
       ],
     }}
-    onAnswer={changeFormHandler}
+    onAnswer={onAnswer}
   />);
 
   const artistForm = artistQuestionScreen.find(`.game__artist`);
-  artistForm.simulate(`change`);
+  artistForm.simulate(`change`, {
+    target: {
+      value: ``,
+    },
+  });
 
-  expect(changeFormHandler).toHaveBeenCalledTimes(1);
+  expect(onAnswer).toHaveBeenCalledTimes(1);
 });

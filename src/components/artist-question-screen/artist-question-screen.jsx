@@ -8,6 +8,10 @@ const ArtistQuestionScreen = ({question, screenIndex, onAnswer}) => {
     // song,
   } = question;
 
+  const handleFormChange = (evt) => {
+    onAnswer(evt.target.value);
+  };
+
   return (
     <section className="game game--artist">
       <Header />
@@ -25,18 +29,15 @@ const ArtistQuestionScreen = ({question, screenIndex, onAnswer}) => {
 
         <form
           className="game__artist"
-          onChange={(evt) => {
-            let answer = evt ? evt.target.value : null;
-            onAnswer(answer);
-          }}
+          onChange={handleFormChange}
         >
           {
-            answers.map((it, i) => (
+            answers.map((answer, i) => (
               <div className="artist" key={`${screenIndex}-answer-${i}`}>
-                <input className="artist__input visually-hidden" type="radio" name="answer" value={it.artist} id={`answer-${i}`} />
+                <input className="artist__input visually-hidden" type="radio" name="answer" value={answer.artist} id={`answer-${i}`} />
                 <label className="artist__name" htmlFor={`answer-${i}`}>
-                  <img className="artist__picture" src={it.picture} alt={it.artist} />
-                  {it.artist}
+                  <img className="artist__picture" src={answer.picture} alt={answer.artist} />
+                  {answer.artist}
                 </label>
               </div>
             ))
