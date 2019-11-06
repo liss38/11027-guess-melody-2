@@ -90,7 +90,9 @@ exports[`ArtistQuestionScreen  correctly renders after relaunch 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--play js-track-button"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
@@ -109,14 +111,14 @@ exports[`ArtistQuestionScreen  correctly renders after relaunch 1`] = `
       >
         <input
           className="artist__input visually-hidden"
-          id="answer-0"
+          id="answer-id-1"
           name="answer"
           type="radio"
           value="John Snow"
         />
         <label
           className="artist__name"
-          htmlFor="answer-0"
+          htmlFor="answer-id-1"
         >
           <img
             alt="John Snow"
@@ -131,14 +133,14 @@ exports[`ArtistQuestionScreen  correctly renders after relaunch 1`] = `
       >
         <input
           className="artist__input visually-hidden"
-          id="answer-1"
+          id="answer-id-2"
           name="answer"
           type="radio"
           value="Jack Daniels"
         />
         <label
           className="artist__name"
-          htmlFor="answer-1"
+          htmlFor="answer-id-2"
         >
           <img
             alt="Jack Daniels"
@@ -153,14 +155,14 @@ exports[`ArtistQuestionScreen  correctly renders after relaunch 1`] = `
       >
         <input
           className="artist__input visually-hidden"
-          id="answer-2"
+          id="answer-id-3"
           name="answer"
           type="radio"
           value="Jim Beam"
         />
         <label
           className="artist__name"
-          htmlFor="answer-2"
+          htmlFor="answer-id-3"
         >
           <img
             alt="Jim Beam"

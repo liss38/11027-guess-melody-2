@@ -14,21 +14,33 @@ it(`ArtistQuestionScreen  correctly renders after relaunch`, () => {
         },
         answers: [
           {
+            id: `id-1`,
             picture: `http://placehold.it/134x134`,
             artist: `John Snow`,
           },
           {
+            id: `id-2`,
             picture: `http://placehold.it/134x134`,
             artist: `Jack Daniels`,
           },
           {
+            id: `id-3`,
             picture: `http://placehold.it/134x134`,
             artist: `Jim Beam`,
           },
         ],
       }}
       onAnswer={jest.fn()}
-    />)
+    />,
+    {createNodeMock(element) {
+      if (element.type === `audio`) {
+        return {
+          createRef() {},
+        };
+      }
+
+      return null;
+    }})
     .toJSON();
   expect(tree).toMatchSnapshot();
 });

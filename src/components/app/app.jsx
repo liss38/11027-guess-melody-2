@@ -57,11 +57,10 @@ class App extends Component {
         const nextIndex = prevState.question + 1;
         const isEnd = nextIndex >= questions.length;
 
-        return {
-          ...prevState,
+        return Object.assign({}, prevState, {
           question: !isEnd ? nextIndex : -1,
           errorCount: answerCheck ? prevState.errorCount : prevState.errorCount + 1,
-        };
+        });
       });
     });
   }
