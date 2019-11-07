@@ -21,7 +21,7 @@ class AudioPlayer extends PureComponent {
 
     audio.src = src;
 
-    audio.oncanplaythrough = () => this.setState({
+    audio.onloadeddata = () => this.setState({
       isLoading: false,
     });
 
@@ -60,7 +60,7 @@ class AudioPlayer extends PureComponent {
     audio.src = ``;
     audio.onplay = null;
     audio.onpause = null;
-    audio.oncanplaythrough = null;
+    audio.onloadeddata = null;
     audio.ontimeupdate = null;
   }
 

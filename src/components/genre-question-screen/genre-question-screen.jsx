@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Header from '../header/header.jsx';
 import AudioPlayer from '../audio-player/audio-player.jsx';
 
-// const GenreQuestionScreen = ({question, screenIndex, onAnswer}) => {
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);

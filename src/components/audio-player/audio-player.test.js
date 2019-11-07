@@ -12,9 +12,7 @@ it(`AudioPlayer is rendered`, () => {
     {
       createNodeMock: (element) => {
         if (element.type === `audio`) {
-          return {
-            createRef() {},
-          };
+          return {};
         }
 
         return null;

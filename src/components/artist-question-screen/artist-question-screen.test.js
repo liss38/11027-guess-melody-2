@@ -34,9 +34,7 @@ it(`ArtistQuestionScreen  correctly renders after relaunch`, () => {
     />,
     {createNodeMock(element) {
       if (element.type === `audio`) {
-        return {
-          createRef() {},
-        };
+        return {};
       }
 
       return null;
