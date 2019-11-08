@@ -93,31 +93,29 @@ exports[`GenreQuestionScreen correctly renders after relaunch 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--play js-track-button"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio>
-            <source
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg"
-            />
-          </audio>
+          <audio />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-0"
+            id="0-id-1"
             name="answer"
             type="checkbox"
-            value="answer-0"
+            value="rock"
           />
           <label
             className="game__check"
-            htmlFor="answer-0"
+            htmlFor="0-id-1"
           >
             Отметить
           </label>
@@ -127,31 +125,29 @@ exports[`GenreQuestionScreen correctly renders after relaunch 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--play js-track-button"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio>
-            <source
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg"
-            />
-          </audio>
+          <audio />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-1"
+            id="0-id-2"
             name="answer"
             type="checkbox"
-            value="answer-1"
+            value="pop"
           />
           <label
             className="game__check"
-            htmlFor="answer-1"
+            htmlFor="0-id-2"
           >
             Отметить
           </label>
@@ -161,31 +157,29 @@ exports[`GenreQuestionScreen correctly renders after relaunch 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--play js-track-button"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio>
-            <source
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg"
-            />
-          </audio>
+          <audio />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-2"
+            id="0-id-3"
             name="answer"
             type="checkbox"
-            value="answer-2"
+            value="jazz"
           />
           <label
             className="game__check"
-            htmlFor="answer-2"
+            htmlFor="0-id-3"
           >
             Отметить
           </label>
@@ -195,31 +189,29 @@ exports[`GenreQuestionScreen correctly renders after relaunch 1`] = `
         className="track"
       >
         <button
-          className="track__button track__button--play"
+          className="track__button track__button--play js-track-button"
+          disabled={true}
+          onClick={[Function]}
           type="button"
         />
         <div
           className="track__status"
         >
-          <audio>
-            <source
-              src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Uganda_flag_and_national_anthem_-_Oh_Uganda_Land_o.ogg"
-            />
-          </audio>
+          <audio />
         </div>
         <div
           className="game__answer"
         >
           <input
             className="game__input visually-hidden"
-            id="answer-3"
+            id="0-id-4"
             name="answer"
             type="checkbox"
-            value="answer-3"
+            value="rock"
           />
           <label
             className="game__check"
-            htmlFor="answer-3"
+            htmlFor="0-id-4"
           >
             Отметить
           </label>

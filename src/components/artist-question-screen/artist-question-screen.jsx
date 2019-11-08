@@ -1,61 +1,88 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import Header from '../header/header.jsx';
+import AudioPlayer from '../audio-player/audio-player.jsx';
 
-const ArtistQuestionScreen = ({question, screenIndex, onAnswer}) => {
-  const {
-    answers,
-  } = question;
+class ArtistQuestionScreen extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  const handleFormChange = (evt) => {
-    onAnswer(evt.target.value);
-  };
+    this.state = {
+      isPlaying: false,
+    };
+  }
 
-  return (
-    <section className="game game--artist">
-      <Header />
+  render() {
+    const {
+      question,
+      screenIndex,
+      onAnswer,
+    } = this.props;
 
-      <section className="game__screen">
-        <h2 className="game__title">Кто исполняет эту песню?</h2>
-        <div className="game__track">
-          <div className="track">
-            <button className="track__button track__button--play" type="button"></button>
-            <div className="track__status">
-              <audio></audio>
+    const {isPlaying} = this.state;
+
+    const {
+      answers,
+      song,
+    } = question;
+
+    return (
+      <section className="game game--artist">
+        <Header />
+
+        <section className="game__screen">
+          <h2 className="game__title">Кто исполняет эту песню?</h2>
+          <div className="game__track">
+            <div className="track">
+              <AudioPlayer
+                key={`${screenIndex}`}
+                src={song.src}
+                isPlaying={isPlaying}
+                onPlayButtonClick={() => this.setState({
+                  isPlaying: !isPlaying,
+                })}
+              />
             </div>
           </div>
-        </div>
 
-        <form
-          className="game__artist"
-          onChange={handleFormChange}
-        >
-          {
-            answers.map((answer, i) => (
-              <div className="artist" key={`${screenIndex}-answer-${i}`}>
-                <input className="artist__input visually-hidden" type="radio" name="answer" value={answer.artist} id={`answer-${i}`} />
-                <label className="artist__name" htmlFor={`answer-${i}`}>
-                  <img className="artist__picture" src={answer.picture} alt={answer.artist} />
-                  {answer.artist}
-                </label>
-              </div>
-            ))
-          }
-        </form>
+          <form
+            className="game__artist"
+            onChange={(evt) => {
+              this.setState({
+                isPlaying: false,
+              });
+
+              onAnswer(evt.target.value);
+            }}
+          >
+            {
+              answers.map((answer) => (
+                <div className="artist" key={`${screenIndex}-${answer.id}`}>
+                  <input className="artist__input visually-hidden" type="radio" name="answer" value={answer.artist} id={`answer-${answer.id}`} />
+                  <label className="artist__name" htmlFor={`answer-${answer.id}`}>
+                    <img className="artist__picture" src={answer.picture} alt={answer.artist} />
+                    {answer.artist}
+                  </label>
+                </div>
+              ))
+            }
+          </form>
+        </section>
       </section>
-    </section>
-  );
-};
+    );
+  }
+}
 
 ArtistQuestionScreen.propTypes = {
   question: PropTypes.shape({
     answers: PropTypes.arrayOf(PropTypes.shape({
-      picture: PropTypes.string,
+      id: PropTypes.string.isRequired,
+      picture: PropTypes.string.isRequired,
       artist: PropTypes.string.isRequired,
     })).isRequired,
     song: PropTypes.shape({
-      artist: PropTypes.string,
-      src: PropTypes.string,
+      artist: PropTypes.string.isRequired,
+      src: PropTypes.string.isRequired,
     }).isRequired,
   }),
   screenIndex: PropTypes.number.isRequired,

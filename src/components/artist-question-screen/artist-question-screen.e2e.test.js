@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import ArtistQuestionScreen from './artist-question-screen';
+import ArtistQuestionScreen from './artist-question-screen.jsx';
 
 configure({adapter: new Adapter()});
 it(`ArtistQuestionScreen: check on change form callback`, () => {
@@ -16,14 +16,17 @@ it(`ArtistQuestionScreen: check on change form callback`, () => {
       },
       answers: [
         {
+          id: `id-1`,
           picture: `http://placehold.it/134x134`,
           artist: `John Snow`,
         },
         {
+          id: `id-2`,
           picture: `http://placehold.it/134x134`,
           artist: `Jack Daniels`,
         },
         {
+          id: `id-3`,
           picture: `http://placehold.it/134x134`,
           artist: `Jim Beam`,
         },
