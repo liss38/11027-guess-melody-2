@@ -64,6 +64,11 @@ class AudioPlayer extends PureComponent {
     audio.ontimeupdate = null;
   }
 
+  _onPlayButtonClick() {
+    this.props.onPlayButtonClick();
+    this.setState({isPlaying: !this.state.isPlaying});
+  }
+
   render() {
     const {
       isLoading,
@@ -83,11 +88,6 @@ class AudioPlayer extends PureComponent {
         </div>
       </React.Fragment>
     );
-  }
-
-  _onPlayButtonClick() {
-    this.props.onPlayButtonClick();
-    this.setState({isPlaying: !this.state.isPlaying});
   }
 }
 
